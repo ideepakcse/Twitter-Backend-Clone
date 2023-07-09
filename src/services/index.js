@@ -1,4 +1,5 @@
 module.exports={
     TweetService: require('./tweet-service'),
-    CommentService: require('./comment-service')
+    CommentService: require('./comment-service'),
+    LikeService: require('./like-service')
 }

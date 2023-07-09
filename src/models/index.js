@@ -3,4 +3,5 @@ module.exports={
     Hashtag : require('./hashtag'),
     Comment : require('./comment'),
     User : require('./user'),
+    Like : require('./like'),
 }

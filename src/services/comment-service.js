@@ -23,7 +23,7 @@ class CommentService {
                 comments: []
             });
             commentable.comments.push(comment);
-            commentable.save();
+            await commentable.save();
             return comment;
         }
         catch{

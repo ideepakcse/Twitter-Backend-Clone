@@ -8,6 +8,7 @@ class CommentService {
 
     async create(modelId, modelType, userId, content) 
     {
+        console.log( modelId, modelType, userId);
         try{
             if(modelType == 'Tweet') {
                 var commentable = await this.tweetRepository.get(modelId);
@@ -20,7 +21,7 @@ class CommentService {
                 content: content,
                 onModel: modelType,
                 commentable: modelId,
-                userId: userId,
+                user: userId,
                 comments: []
             });
             commentable.comments.push(comment);

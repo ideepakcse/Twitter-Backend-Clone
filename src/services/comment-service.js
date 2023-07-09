@@ -6,7 +6,7 @@ class CommentService {
         this.tweetRepository = new TweetRepository();
     }
 
-    async create(modelId, modelType, content) 
+    async create(modelId, modelType, userId, content) 
     {
         try{
             if(modelType == 'Tweet') {
@@ -20,10 +20,11 @@ class CommentService {
                 content: content,
                 onModel: modelType,
                 commentable: modelId,
+                userId: userId,
                 comments: []
             });
             commentable.comments.push(comment);
-            await commentable.save();
+            commentable.save();
             return comment;
         }
         catch{

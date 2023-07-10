@@ -27,7 +27,6 @@ class UserService {
             if(!user) {
                 throw new Error('user not found');
             }
-            console.log(user);
             // step 2-> compare incoming plain password with stores encrypted password
             const passwordsMatch = checkPassword(data.password, user.password);
             if(!passwordsMatch) {

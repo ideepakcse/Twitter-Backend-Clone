@@ -12,7 +12,7 @@ class TweetService {
             const tweet = await this.tweetRepository.create(data);
             const content = data.content;
             const allHashtags = content.match(/#[a-zA-Z0-9_]+/g) // this regex extracts hashtags
-            const tags=[];
+            var tags=[];
             if(allHashtags)
             {
                 tags=allHashtags.map((tag) => tag.substring(1).toLowerCase());
@@ -23,6 +23,7 @@ class TweetService {
             newTags = newTags.map((tag) => {
                 return {title: tag, tweets: [tweet.id]}
             });
+           
             await this.hashtagRepository.bulkCreate(newTags);
             alreadyPresentTags.map((tag) => {
                 tag.tweets.push(tweet.id);
